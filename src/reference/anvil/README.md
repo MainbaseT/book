@@ -45,7 +45,7 @@ This allows you to test CREATE2 deployments locally without forking.
 
 #### Supported RPC Methods
 ##### Standard Methods
-The standard methods are based on [this](https://eth.wiki/json-rpc/API) reference.
+The standard methods are based on [this](https://ethereum.org/en/developers/docs/apis/json-rpc/) reference.
 
 * `web3_clientVersion`
 
@@ -261,7 +261,7 @@ Returns a summary of all the transactions currently pending for inclusion in the
 Returns the details of all transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
 
 ##### Otterscan Methods
-The `ots_*` namespace implements the [Otterscan specification](https://github.com/otterscan/otterscan/blob/develop/docs/custom-jsonrpc.md).
+The `ots_*` namespace implements the [Otterscan specification](https://docs.otterscan.io/api-docs/ots-api).
 
 `ots_getApiLevel`
 Used by Otterscan to check if it\'s connecting to a compatible node and display a friendly message if it is not.
