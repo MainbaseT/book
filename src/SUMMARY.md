@@ -18,7 +18,7 @@
 
 # Forge Overview
 
-- [Overview of Forge](forge/README.md)
+- [Forge](forge/README.md)
 - [Tests](./forge/tests.md)
   - [Writing Tests](./forge/writing-tests.md)
   - [Cheatcodes](./forge/cheatcodes.md)
@@ -45,15 +45,15 @@
 
 # Cast Overview
 
-- [Overview of Cast](./cast/README.md)
+- [Cast](./cast/README.md)
 
 # Anvil Overview
 
-- [Overview of Anvil](./anvil/README.md)
+- [Anvil](./anvil/README.md)
 
 # Chisel Overview
 
-- [Overview of Chisel](./chisel/README.md)
+- [Chisel](./chisel/README.md)
 
 # Configuration
 
@@ -79,6 +79,7 @@
 
 # Appendix
 
+- [Announcements](./announcements.md)
 - [FAQ](./faq.md)
 - [Help us improve Foundry](./contributing.md)
 - [References](./reference/README.md)
@@ -92,11 +93,12 @@
         - [`forge cache ls`](./reference/cli/forge/cache/ls.md)
       - [`forge clean`](./reference/cli/forge/clean.md)
       - [`forge clone`](./reference/cli/forge/clone.md)
+      - [`forge compiler`](./reference/cli/forge/compiler.md)
+        - [`forge compiler resolve`](./reference/cli/forge/compiler/resolve.md)
       - [`forge completions`](./reference/cli/forge/completions.md)
       - [`forge config`](./reference/cli/forge/config.md)
       - [`forge coverage`](./reference/cli/forge/coverage.md)
       - [`forge create`](./reference/cli/forge/create.md)
-      - [`forge debug`](./reference/cli/forge/debug.md)
       - [`forge doc`](./reference/cli/forge/doc.md)
       - [`forge eip712`](./reference/cli/forge/eip712.md)
       - [`forge flatten`](./reference/cli/forge/flatten.md)
@@ -116,6 +118,7 @@
         - [`forge selectors upload`](./reference/cli/forge/selectors/upload.md)
         - [`forge selectors list`](./reference/cli/forge/selectors/list.md)
         - [`forge selectors find`](./reference/cli/forge/selectors/find.md)
+        - [`forge selectors cache`](./reference/cli/forge/selectors/cache.md)
       - [`forge snapshot`](./reference/cli/forge/snapshot.md)
       - [`forge soldeer`](./reference/cli/forge/soldeer.md)
         - [`forge soldeer init`](./reference/cli/forge/soldeer/init.md)
@@ -135,12 +138,12 @@
       - [`cast 4byte`](./reference/cli/cast/4byte.md)
       - [`cast 4byte-decode`](./reference/cli/cast/4byte-decode.md)
       - [`cast 4byte-event`](./reference/cli/cast/4byte-event.md)
-      - [`cast abi-decode`](./reference/cli/cast/abi-decode.md)
       - [`cast abi-encode`](./reference/cli/cast/abi-encode.md)
       - [`cast access-list`](./reference/cli/cast/access-list.md)
       - [`cast address-zero`](./reference/cli/cast/address-zero.md)
       - [`cast admin`](./reference/cli/cast/admin.md)
       - [`cast age`](./reference/cli/cast/age.md)
+      - [`cast artifact`](./reference/cli/cast/artifact.md)
       - [`cast balance`](./reference/cli/cast/balance.md)
       - [`cast base-fee`](./reference/cli/cast/base-fee.md)
       - [`cast bind`](./reference/cli/cast/bind.md)
@@ -149,7 +152,6 @@
       - [`cast call`](./reference/cli/cast/call.md)
         - [`cast call --create`](./reference/cli/cast/call/--create.md)
       - [`cast calldata`](./reference/cli/cast/calldata.md)
-      - [`cast calldata-decode`](./reference/cli/cast/calldata-decode.md)
       - [`cast chain`](./reference/cli/cast/chain.md)
       - [`cast chain-id`](./reference/cli/cast/chain-id.md)
       - [`cast client`](./reference/cli/cast/client.md)
@@ -159,8 +161,15 @@
       - [`cast completions`](./reference/cli/cast/completions.md)
       - [`cast compute-address`](./reference/cli/cast/compute-address.md)
       - [`cast concat-hex`](./reference/cli/cast/concat-hex.md)
+      - [`cast constructor-args`](./reference/cli/cast/constructor-args.md)
       - [`cast create2`](./reference/cli/cast/create2.md)
+      - [`cast creation-code`](./reference/cli/cast/creation-code.md)
+      - [`cast decode-abi`](./reference/cli/cast/decode-abi.md)
+      - [`cast decode-calldata`](./reference/cli/cast/decode-calldata.md)
       - [`cast decode-eof`](./reference/cli/cast/decode-eof.md)
+      - [`cast decode-error`](./reference/cli/cast/decode-error.md)
+      - [`cast decode-event`](./reference/cli/cast/decode-event.md)
+      - [`cast decode-string`](./reference/cli/cast/decode-string.md)
       - [`cast decode-transaction`](./reference/cli/cast/decode-transaction.md)
       - [`cast disassemble`](./reference/cli/cast/disassemble.md)
       - [`cast estimate`](./reference/cli/cast/estimate.md)
@@ -168,6 +177,7 @@
       - [`cast etherscan-source`](./reference/cli/cast/etherscan-source.md)
       - [`cast find-block`](./reference/cli/cast/find-block.md)
       - [`cast format-bytes32-string`](./reference/cli/cast/format-bytes32-string.md)
+      - [`cast format-units`](./reference/cli/cast/format-units.md)
       - [`cast from-bin`](./reference/cli/cast/from-bin.md)
       - [`cast from-fixed-point`](./reference/cli/cast/from-fixed-point.md)
       - [`cast from-rlp`](./reference/cli/cast/from-rlp.md)
@@ -193,6 +203,7 @@
       - [`cast nonce`](./reference/cli/cast/nonce.md)
       - [`cast parse-bytes32-address`](./reference/cli/cast/parse-bytes32-address.md)
       - [`cast parse-bytes32-string`](./reference/cli/cast/parse-bytes32-string.md)
+      - [`cast parse-units`](./reference/cli/cast/parse-units.md)
       - [`cast pretty-calldata`](./reference/cli/cast/pretty-calldata.md)
       - [`cast proof`](./reference/cli/cast/proof.md)
       - [`cast publish`](./reference/cli/cast/publish.md)
@@ -275,7 +286,6 @@
       - [forge verify-check](./reference/forge/forge-verify-check.md)
       - [forge flatten](./reference/forge/forge-flatten.md)
     - [Utility Commands](./reference/forge/utility-commands.md)
-      - [forge debug](./reference/forge/forge-debug.md)
       - [forge bind](./reference/forge/forge-bind.md)
       - [forge cache](./reference/forge/forge-cache.md)
       - [forge cache clean](./reference/forge/forge-cache-clean.md)
@@ -418,6 +428,7 @@
       - [`setNonce`](./cheatcodes/set-nonce.md)
       - [`getNonce`](./cheatcodes/get-nonce.md)
       - [`mockCall`](./cheatcodes/mock-call.md)
+      - [`mockCalls`](./cheatcodes/mock-calls.md)
       - [`mockCallRevert`](./cheatcodes/mock-call-revert.md)
       - [`mockFunction`](./cheatcodes/mock-function.md)
       - [`clearMockedCalls`](./cheatcodes/clear-mocked-calls.md)
@@ -433,6 +444,7 @@
       - [`stopAndReturnStateDiff`](./cheatcodes/stop-and-return-state-diff.md)
       - [`snapshotState`](./cheatcodes/state-snapshots.md)
       - [`snapshotGas`](./cheatcodes/gas-snapshots.md)
+      - [`isContext`](./cheatcodes/is-context.md)
     - [Assertions](./cheatcodes/assertions.md)
       - [`expectRevert`](./cheatcodes/expect-revert.md)
       - [`expectEmit`](./cheatcodes/expect-emit.md)
@@ -478,9 +490,11 @@
       - [`serializeJson`](./cheatcodes/serialize-json.md)
       - [`writeJson`](./cheatcodes/write-json.md)
       - [`writeToml`](./cheatcodes/write-toml.md)
+    - [Signing](./cheatcodes/signing.md)
+      - [`sign`](./cheatcodes/sign.md)
+      - [`signDelegation`](./cheatcodes/sign-delegation.md)
     - [Utilities](./cheatcodes/utilities.md)
       - [`addr`](./cheatcodes/addr.md)
-      - [`sign`](./cheatcodes/sign.md)
       - [`skip`](./cheatcodes/skip.md)
       - [`label`](./cheatcodes/label.md)
       - [`getLabel`](./cheatcodes/get-label.md)

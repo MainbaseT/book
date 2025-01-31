@@ -15,6 +15,10 @@ Solidity scripts are like the scripts you write when working with tools like Har
 3. Broadcasting - Optional. If the `--broadcast` flag is provided and the previous phases have succeeded, it will broadcast the transactions collected at step `1`. and simulated at step `2`.
 4. Verification - Optional. If the `--verify` flag is provided, there's an API key, and the previous phases have succeeded it will attempt to verify the contract. (eg. etherscan).
 
+> 💡 Note:
+> 
+> Transactions that previously failed or timed-out can be submitted again by providing `--resume` flag.
+
 Given this flow, it's important to be aware that transactions whose behaviour can be influenced by external state/actors might have a different result than what was simulated on step `2`. Eg. frontrunning.
 
 ### Set Up
@@ -178,6 +182,10 @@ contract MyScript is Script {
 }
 ```
 
+> 💡 Note:
+> 
+> The `vm.isContext` cheatcode can be used to execute logic specific to script phases, by checking if context is one of `ForgeContext.ScriptDryRun`, `ForgeContext.ScriptBroadcast` or `ForgeContext.ScriptResume`.
+
 Now let’s read through the code and figure out what it actually means and does.
 
 ```solidity
@@ -251,6 +259,55 @@ Forge is going to run our script and broadcast the transactions for us - this ca
 ![contract verified](../images/solidity-scripting/contract-verified.png)
 
 This confirms that you have successfully deployed the `NFT` contract to the Sepolia testnet and have also verified it on Etherscan, all with one command.
+
+### Scripting with Arguments
+
+Let's enhance our script to accept arguments, making it more flexible and reusable. This approach allows us to deploy different NFT contracts with varying names, symbols, and base URIs without modifying the script each time. We'll start by modifying the `NFT.s.sol` script:
+
+```solidity
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+import {Script} from "forge-std/Script.sol";
+import {NFT} from "../src/NFT.sol";
+
+contract MyScript is Script {
+    function run(
+        string calldata _name,
+        string calldata _symbol,
+        string calldata _baseUri
+    ) external {
+        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        vm.startBroadcast(deployerPrivateKey);
+
+        NFT nft = new NFT(_name, _symbol, _baseUri);
+
+        vm.stopBroadcast();
+    }
+}
+```
+
+At the root of the project run:
+
+```sh
+# To load the variables in the .env file
+source .env
+
+# To deploy and verify our contract
+forge script --chain sepolia script/NFT.s.sol:MyScript "NFT tutorial" TUT baseUri --sig 'run(string,string,string)' --rpc-url $SEPOLIA_RPC_URL --broadcast --verify -vvvv
+```
+
+Let's break down the additions to our command:
+
+`"NFT tutorial" TUT baseUri --sig 'run(string,string,string)'`
+
+- `"NFT tutorial"` - is the first argument of the new run command - the name of the collection
+- `TUT` - is the second argument - the symbol of the collection
+- `baseUri` - is the third argument - the baseURI of the collection
+- `--sig 'run(string,string,string)'` - changes the signature of the function we want to call in the contract
+
+Forge is going to run our script and broadcast the transactions using the parameters we specified on the command line. 
+You should see an output similar to the previous section.
 
 ### Deploying locally
 

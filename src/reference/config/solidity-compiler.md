@@ -160,10 +160,22 @@ If enabled, Foundry will treat Solidity compiler warnings as errors, stopping ar
 ##### `evm_version`
 
 - Type: string
-- Default: paris
+- Default: cancun
 - Environment: `FOUNDRY_EVM_VERSION` or `DAPP_EVM_VERSION`
 
 The EVM version to use during tests. The value **must** be an EVM hardfork name, such as `london`, `byzantium`, etc.
+
+If you are relying on a specific EVM version for compatibility reasons you are recommended to pin to it in `foundry.toml`:
+
+```toml
+evm_version = "paris"
+```
+
+If you are experimenting with future hardforks that Foundry already supports, such as [EIP-7702](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7702.md) to be added in `Prague`, you should set your `evm_version` as follows:
+
+```toml
+evm_version = "prague"
+```
 
 ##### `revert_strings`
 
@@ -244,10 +256,13 @@ Configuration related to the Solidity optimizer.
 ##### `optimizer`
 
 - Type: boolean
-- Default: true
+- Default: false
 - Environment: `FOUNDRY_OPTIMIZER` or `DAPP_OPTIMIZER`
 
 Whether or not to enable the Solidity optimizer.
+
+> ℹ️ **Note**
+> Solidity optimizer is automatically enabled if `optimizer_runs` is set to a value greater than 0.
 
 ##### `optimizer_runs`
 

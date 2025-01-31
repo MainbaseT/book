@@ -21,6 +21,7 @@
 - [`setNonce`](./set-nonce.md)
 - [`getNonce`](./get-nonce.md)
 - [`mockCall`](./mock-call.md)
+- [`mockCalls`](./mock-calls.md)
 - [`mockCallRevert`](./mock-call-revert.md)
 - [`mockFunction`](./mock-function.md)
 - [`clearMockedCalls`](./clear-mocked-calls.md)
@@ -34,3 +35,4 @@
 - [`txGasPrice`](./tx-gas-price.md)
 - [`startStateDiffRecording`](./start-state-diff-recording.md)
 - [`stopAndReturnStateDiff`](./stop-and-return-state-diff.md)
+- [`isContext`](./is-context.md)
